@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    ::selection {
+        @apply bg-cGold-100 text-white;
+    }
+
+    .body-mail {
+        @apply bg-white;
+    }
+
+    .contact-form {
+        @apply flex flex-col bg-cGray-100 shadow-lg border-[6px] border-white rounded-xl w-full h-full p-4;
+    }
+    .mail-header {
+        @apply py-4 text-center font-bold text-xl rounded-lg shadow-md text-white bg-cGold-200 mb-6 select-none;
+    }
+    .mail-body {
+        @apply px-4 py-2;
+    }
+    .sender-info {
+        @apply text-lg flex flex-col capitalize mb-4;
+    }
+
+    .sender-info > div {
+        @apply flex flex-col mb-3;
+    }
+
+    .sender-info > div > span:first-child,
+    .sender-message div:first-child {
+        @apply font-bold mb-1 text-lg;
+    }
+    .sender-info > div > span:last-child,
+    .sender-message p {
+        @apply text-base;
+    }
+}

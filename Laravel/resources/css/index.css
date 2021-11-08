@@ -1,0 +1,345 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    ::selection {
+        @apply bg-cGold-100;
+    }
+    img,
+    svg {
+        @apply select-none;
+    }
+    input {
+        outline: none;
+    }
+    .nav-link,
+    .nav-item {
+        @apply px-3 py-2 text-lg cursor-pointer uppercase hover:text-cGold-100 focus:text-cGold-100 transition-colors duration-100 ease-out;
+    }
+
+    .ham-menu {
+        @apply rounded py-1 px-3 text-lg cursor-pointer bg-cGold-100 hover:bg-cGold-200 lg:hidden transition-all duration-100 ease-out;
+    }
+
+    .ham {
+        @apply pointer-events-none;
+    }
+
+    .active {
+        @apply text-cGold-100;
+    }
+
+    .menu-bot {
+        @apply animate-homeMenuClose;
+        transform: translateY(-100%);
+    }
+
+    .menu-open {
+        @apply animate-homeMenuOpen;
+        transform: translateY(-1px);
+    }
+
+    .menu-top {
+        height: 4rem;
+    }
+
+    .large-nav {
+        @apply absolute top-0 right-0 z-50;
+    }
+
+    .large-nav .nav-list {
+        @apply flex-row;
+    }
+
+    .large-nav .nav-link {
+        font-size: 1rem;
+    }
+    .logo__car {
+        @apply fill-cGold-logo;
+    }
+    .banner {
+        height: 1.5rem;
+    }
+    .header-shadow {
+        @apply shadow-xl;
+    }
+    section {
+        @apply flex flex-col gap-10 justify-start min-w-full items-center py-20;
+    }
+    section > *,
+    header > *,
+    footer > * {
+        @apply font-sans;
+    }
+    .sec_contact,
+    .sec_home {
+        @apply bg-no-repeat bg-center bg-cover;
+    }
+
+    .sec_home {
+        @apply h-[75vh];
+        background-image: url(../uploads/images/car.jpg);
+    }
+    .notify-email-red {
+        @apply bg-cRed-100;
+    }
+    .notify-email-green {
+        @apply bg-cGreen-300;
+    }
+    .sec_contact {
+        background-image: url(../uploads/images/map-image.png);
+    }
+
+    .sec_title {
+        @apply text-center;
+    }
+
+    .sec_title__text {
+        @apply text-cBlack text-5xl font-bold uppercase;
+    }
+
+    .sec_description {
+        @apply text-cGray-400;
+    }
+
+    .item {
+        @apply flex flex-col justify-center items-center mb-10 px-3;
+        flex: 0 0 25%;
+        width: 33.3333%;
+        min-width: 18rem;
+        gap: 0.65rem;
+        word-break: break-word;
+    }
+    .item .service-image {
+        @apply rounded-full;
+        width: 33.333%;
+    }
+    .item .service-image img {
+        @apply min-w-full rounded-full;
+    }
+    .service_list {
+        @apply flex justify-center items-start gap-[2vw] md:gap-[4vw] px-12 flex-wrap w-full;
+    }
+    .service {
+        @apply flex flex-col justify-center items-center w-full gap-6 min-w-[170px];
+        flex: 1 1 250px;
+        /* width: 33.3333%; */
+    }
+    .service__header {
+        @apply flex justify-center items-center;
+    }
+    .service__header img {
+        @apply cursor-pointer rounded-full w-[150px] h-[150px] hover:scale-105 shadow-lg hover:shadow-2xl transition-all duration-500 ease-out;
+    }
+    .service__body {
+        @apply flex flex-col justify-center items-center gap-2 text-center;
+        word-break: break-word;
+    }
+    .service__body h4 {
+        @apply font-bold text-cBlack text-3xl text-center capitalize;
+    }
+
+    .service__body p {
+        @apply text-cGray-300 tracking-wider;
+    }
+
+    .member {
+        @apply flex flex-col justify-center items-center capitalize;
+        flex: 1 1 250px;
+        min-width: 16rem;
+        word-break: break-word;
+    }
+
+    .member > h4 {
+        @apply text-3xl text-cBlack font-semibold text-center;
+    }
+
+    .member > p {
+        @apply mt-1 text-cGray-300;
+    }
+
+    .team_pic {
+        @apply mb-4 rounded-full transform hover:scale-105 transition-transform duration-500 ease-out cursor-pointer w-[200px] h-[200px] shadow-lg hover:shadow-2xl object-cover;
+    }
+
+    .social-list {
+        @apply flex justify-center items-center gap-5 text-3xl;
+    }
+
+    .social-button {
+        @apply text-2xl transition-all ease-in duration-150;
+    }
+
+    .social-button i:first-child {
+        @apply text-cBlack group-hover:text-cGold-200 transition-colors ease-in duration-200;
+    }
+    .social-button:hover i:first-child {
+        @apply text-cGold-100 group-hover:text-cGold-100;
+    }
+
+    .partners {
+        @apply flex flex-wrap justify-evenly items-center px-12 md:px-24 min-w-[200px] gap-8;
+    }
+
+    .partners .image {
+        @apply w-[200px] h-[200px] cursor-pointer border-8 border-gray-100 hover:border-gray-300 shadow-lg hover:shadow-xl transition-all duration-500 ease-out rounded-full p-4;
+        flex: 0 0 200px;
+    }
+
+    .partner_pic {
+        @apply hover:scale-105 w-full h-full grayscale hover:grayscale-0 transition-all duration-500 ease-out mx-auto p-4;
+    }
+    .about {
+        @apply flex justify-center items-start;
+    }
+    .about__image {
+        @apply w-full ml-4 order-2;
+        flex: 0 1 350px;
+        min-width: 250px;
+    }
+    .about__text {
+        @apply text-black text-justify px-12 max-w-2xl  order-1;
+        flex: 1 1 100%;
+    }
+    .about_pic {
+        @apply border-4 border-gray-200 min-w-full rounded-tl-lg rounded-br-lg;
+    }
+    .email-notify__text {
+        @apply text-2xl;
+    }
+    @media (max-width: 640px) {
+        .about {
+            @apply flex flex-wrap justify-center w-full items-center;
+        }
+
+        .about__image {
+            @apply rounded-2xl w-6/12 order-1 p-8;
+            flex: 0 0 auto;
+            margin-inline-start: 0;
+            border-top-left-radius: 15%;
+            border-bottom-right-radius: 15%;
+            transform: skewX(-12deg);
+            margin-block-end: 1.5rem;
+        }
+
+        .about_pic {
+            @apply rounded-2xl;
+            border-top-left-radius: 15%;
+            border-bottom-right-radius: 15%;
+        }
+        .about__text {
+            @apply text-left order-2;
+        }
+        .email-notify__text {
+            @apply text-lg;
+        }
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        font-weight: 700;
+        color: #ced4da;
+    }
+
+    input,
+    textarea {
+        @apply outline-none rounded-lg ring-cGold-100 focus:ring-2 transition-all ease-out duration-200;
+        border-width: 0.5px;
+        padding: 20px;
+    }
+
+    textarea {
+        min-height: 74px;
+        height: 14.7rem;
+    }
+
+    .contact {
+        @apply w-full mt-4;
+    }
+
+    .contact_form {
+        @apply flex flex-col justify-center items-center gap-4;
+    }
+
+    .contact_input {
+        @apply flex justify-center items-start flex-wrap gap-8 w-full;
+    }
+
+    .contact_left_input {
+        @apply flex flex-col gap-4;
+    }
+
+    .contact_right_input {
+        @apply flex;
+    }
+
+    .contact_input > *,
+    .contact_right_input > textarea {
+        flex: 1 1 24rem;
+        width: 30%;
+    }
+
+    .btn_send {
+        @apply bg-cGold-100 hover:bg-cGold-200 text-white
+        rounded cursor-pointer transition ease-in-out text-2xl duration-300 border-0;
+        padding: 20px 40px;
+    }
+    footer {
+        @apply flex flex-col justify-center items-center bg-cGray-400 w-full h-full;
+    }
+    .footer-top > * {
+        flex: 0 0 250px;
+        width: 12rem;
+    }
+    .footer__title {
+        @apply uppercase font-bold text-2xl text-center;
+    }
+    .footer_bot-text {
+        @apply py-8;
+    }
+    .footer_inner-right > div {
+        @apply grid w-full items-center justify-center;
+        grid-template: max-content max-content / 80% 20%;
+        row-gap: 1rem;
+    }
+    .footer_inner-right > div > span {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .footer_inner-right > div > ul {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .footer_inner-right .social-button i:first-child {
+        @apply text-white;
+    }
+    .footer_inner-right .social-button:hover i:first-child {
+        @apply text-cGold-100;
+    }
+    .hide-message {
+        @apply opacity-0 animate-hideMessage;
+    }
+    .show-message {
+        @apply opacity-100 animate-showMessage;
+    }
+}
+.st0 {
+    fill: #4b4b4d;
+}
+.st1 {
+    fill: #5dc4cb;
+}
+.st2 {
+    fill: #e37296;
+}
+.st3 {
+    fill: #60b0e1;
+}
+.st4 {
+    fill: #f7974b;
+}
