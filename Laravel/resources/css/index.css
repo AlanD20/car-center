@@ -187,12 +187,15 @@
     }
 
     .partners .image {
-        @apply w-[200px] h-[200px] cursor-pointer border-8 border-gray-100 hover:border-gray-300 shadow-lg hover:shadow-xl transition-all duration-500 ease-out rounded-full p-4;
+        @apply w-[200px] h-[200px] cursor-pointer transition-all duration-500 ease-out rounded-full;
         flex: 0 0 200px;
     }
 
     .partner_pic {
-        @apply hover:scale-105 w-full h-full grayscale hover:grayscale-0 transition-all duration-500 ease-out mx-auto p-4;
+        @apply object-scale-down w-full h-full md:grayscale transition-all duration-500 ease-out mx-auto rounded-full border-8 border-gray-100 hover:border-gray-300 shadow-lg hover:shadow-xl;
+    }
+    .partners .image:hover .partner_pic {
+        @apply scale-105 grayscale-0;
     }
     .about {
         @apply flex justify-center items-start;
