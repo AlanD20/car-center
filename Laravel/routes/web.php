@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\LocaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +20,12 @@ use App\Http\Controllers\ClientController;
 */
 
 
-Route::get('/', [ClientController::class, 'index'])->name('home');
-Route::post('/contact', [ClientController::class, 'contact'])->name('contact');
 
+Route::post('/contact', [ClientController::class, 'contact'])->name('contact');
+Route::get('/', [ClientController::class, 'index'])->name('home');
+require __DIR__ . '/languages/index.php';
 require __DIR__ . '/config.php';
+
 
 Route::name('admin.')
     ->middleware('auth')
@@ -31,6 +34,8 @@ Route::name('admin.')
         Route::get('admin/{name?}', [AdminController::class, 'index'])->name('dashboard')->where('name', 'home|dashboard');
 
         Route::prefix('admin')->group(function () {
+            require __DIR__ . '/slides/index.php';
+            require __DIR__ . '/about/index.php';
             require __DIR__ . '/services/index.php';
             require __DIR__ . '/teams/index.php';
             require __DIR__ . '/partners/index.php';
@@ -45,8 +50,6 @@ Route::prefix('admin')
         Route::get('login', [AuthController::class, 'create'])->name('login');
         Route::post('login', [AuthController::class, 'store']);
     });
-
 Route::fallback(function () {
     return abort(404);
-    // return redirect()->route('home');
 });

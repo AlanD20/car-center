@@ -16,8 +16,12 @@ class CreatePartnersTable extends Migration
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string('name')->nullable();
-            $table->string('description')->nullable();
+            $table->string('en_name');
+            $table->string('ku_name')->nullable();
+            $table->string('ar_name')->nullable();
+            $table->string('en_description');
+            $table->string('ku_description')->nullable();
+            $table->string('ar_description')->nullable();
             $table->text('image');
             $table->timestamps();
         });

@@ -42,6 +42,20 @@ class ContactFormRequest extends FormRequest
             'message' => ['required', 'string', 'max:255'],
         ];
     }
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'name' => "Name",
+            'email' => "Email",
+            'phone' => "Phone",
+            'message' => "Message",
+        ];
+    }
 
     public function sendEmail()
     {
@@ -51,7 +65,7 @@ class ContactFormRequest extends FormRequest
             'phone' => $this->safe()->phone,
             'message' => $this->safe()->message
         ];
-        $mail = new PHPMailer(false);
+        $mail = new PHPMailer(true);
         try {
             //Send using SMTP
             $mail->isSMTP();
@@ -59,20 +73,17 @@ class ContactFormRequest extends FormRequest
             $mail->Host = config('info.mail_host');
             //Enable SMTP authentication
             $mail->SMTPAuth   = true;
-            $mail->SMTPAutoTLS = false;
             //SMTP username
             $mail->Username   = config('info.mail_username');
             //SMTP password
             $mail->Password   = config('info.mail_password');
             //Enable implicit TLS encryption
-            //$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->SMTPSecure = false;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             $mail->Port = config('info.mail_port');
             //Recipients
-            $mail->setFrom(config('info.mail_username'));
+            $mail->setFrom(config('info.mail_username'), config('app.name'));
             $mail->addAddress(config('info.mail_username'));
-            $mail->addReplyTo($data['email'], $data['name']);
             $messageBody = "Name: {$data['name']}\nEmail: {$data['email']}\nPhone Number: {$data['phone']}\n\nMessage:\n{$data['message']}";
             //Content
             //Set email format to HTML
@@ -82,7 +93,7 @@ class ContactFormRequest extends FormRequest
             $mail->send();
         } catch (\Exception $e) {
             throw ValidationException::withMessages([
-                'failed' => "Failed to send a message, please try again."
+                'failed' => __('index.admin.messages.mail.fail')
             ])->redirectTo($this->getRedirectUrl() . '#contact');
         }
         return;

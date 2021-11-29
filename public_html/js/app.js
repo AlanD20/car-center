@@ -1,1 +1,95 @@
-(()=>{function e(e){return function(e){if(Array.isArray(e))return t(e)}(e)||function(e){if("undefined"!=typeof Symbol&&null!=e[Symbol.iterator]||null!=e["@@iterator"])return Array.from(e)}(e)||function(e,n){if(!e)return;if("string"==typeof e)return t(e,n);var r=Object.prototype.toString.call(e).slice(8,-1);"Object"===r&&e.constructor&&(r=e.constructor.name);if("Map"===r||"Set"===r)return Array.from(e);if("Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r))return t(e,n)}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function t(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++)r[n]=e[n];return r}var n=document.querySelector(".left-nav"),r=document.querySelector(".body-container"),o=document.querySelector(".nav-state"),i=document.querySelectorAll(".list-item"),l=(window.matchMedia("(min-width: 600px)"),document.querySelector(".btn-file")),a=document.querySelector(".text-file"),c=document.querySelector(".file");function s(){n.classList.add("left-nav_open"),r.classList.add("body_nav_open"),u(),d()}function u(){var t=document.querySelectorAll(".list_extend_open"),n=document.querySelectorAll(".list-item_open");[].concat(e(t),e(n)).forEach((function(e){e.classList.remove("list_extend_open"),e.classList.remove("list-item_open")}))}function d(){n.classList.contains("left-nav_open")?o.innerHTML='<i class="fas fa-arrow-alt-from-right"></i>':o.innerHTML='<i class="fas fa-arrow-alt-to-right"></i>'}null==l||l.addEventListener("click",(function(e){c.click()})),null==c||c.addEventListener("change",(function(e){c.value?a.textContent=c.value.split("\\").pop():a.textContent="No Image Chosen"})),null==o||o.addEventListener("click",(function(e){return n.classList.toggle("left-nav_open"),r.classList.toggle("body_nav_open"),u(),void d()})),null==i||i.forEach((function(e){e.addEventListener("click",(function(e){var t,n;null!==(t=e.target.nextElementSibling)&&void 0!==t&&t.classList.contains("list_extend_open")?s():null!==(n=e.target.nextElementSibling)&&void 0!==n&&n.classList.contains("list_extend")&&(s(),e.target.parentElement.classList.toggle("list-item_open"),e.target.nextElementSibling.classList.toggle("list_extend_open"))}))})),window.addEventListener("resize",(function(e){return n.classList.remove("left-nav_open"),r.classList.remove("body_nav_open"),u(),void d()}))})();
+/******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var leftNav = document.querySelector('.left-nav');
+var bodyContainer = document.querySelector('.body-container');
+var navState = document.querySelector('.nav-state');
+var listItems = document.querySelectorAll('.list-item');
+var navState_close = '<i class="fas fa-arrow-alt-to-right"></i>';
+var navState_open = '<i class="fas fa-arrow-alt-from-right"></i>';
+var mediaQuery = window.matchMedia("(min-width: 600px)");
+var btnFile = document.querySelector('.btn-file');
+var textFile = document.querySelector('.text-file');
+var file = document.querySelector('.file');
+btnFile === null || btnFile === void 0 ? void 0 : btnFile.addEventListener('click', function (_) {
+  file.click();
+});
+file === null || file === void 0 ? void 0 : file.addEventListener('change', function (e) {
+  if (file.value) {
+    textFile.textContent = file.value.split('\\').pop();
+  } else {
+    textFile.textContent = "No Image Chosen";
+  }
+});
+navState === null || navState === void 0 ? void 0 : navState.addEventListener('click', function (_) {
+  return toggleNavigation();
+});
+listItems === null || listItems === void 0 ? void 0 : listItems.forEach(function (item) {
+  item.addEventListener('click', function (e) {
+    var _e$target$nextElement, _e$target$nextElement2;
+
+    if ((_e$target$nextElement = e.target.nextElementSibling) !== null && _e$target$nextElement !== void 0 && _e$target$nextElement.classList.contains('list__extend--open')) {
+      openNavigation();
+      return;
+    }
+
+    if ((_e$target$nextElement2 = e.target.nextElementSibling) !== null && _e$target$nextElement2 !== void 0 && _e$target$nextElement2.classList.contains("list__extend")) {
+      openNavigation();
+      e.target.parentElement.classList.toggle('list__item--open');
+      e.target.nextElementSibling.classList.toggle('list__extend--open');
+    }
+  });
+});
+window.addEventListener('resize', function (_) {
+  return closeNavigation();
+});
+
+function toggleNavigation() {
+  leftNav.classList.toggle('left-nav--open');
+  bodyContainer.classList.toggle('body__nav--open');
+  clearOpenedNavList();
+  switchNavStateIcon();
+}
+
+function closeNavigation() {
+  leftNav.classList.remove('left-nav--open');
+  bodyContainer.classList.remove('body__nav--open');
+  clearOpenedNavList();
+  switchNavStateIcon();
+}
+
+function openNavigation() {
+  leftNav.classList.add('left-nav--open');
+  bodyContainer.classList.add('body__nav--open');
+  clearOpenedNavList();
+  switchNavStateIcon();
+}
+
+function clearOpenedNavList() {
+  var list1 = document.querySelectorAll('.list__extend--open');
+  var list2 = document.querySelectorAll('.list__item--open');
+  [].concat(_toConsumableArray(list1), _toConsumableArray(list2)).forEach(function (item) {
+    item.classList.remove('list__extend--open');
+    item.classList.remove('list__item--open');
+  });
+}
+
+function switchNavStateIcon() {
+  if (leftNav.classList.contains('left-nav--open')) navState.innerHTML = navState_open;else navState.innerHTML = navState_close;
+}
+/******/ })()
+;

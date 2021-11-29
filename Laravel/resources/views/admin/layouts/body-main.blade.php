@@ -11,7 +11,7 @@ $username = $username ?? "Admin";
 
 @section('body')
 
-<div class="body-container">
+<div class="body-container @yield('body-container-class')">
 
     @include('admin.layouts.body-header', ['title'=> $title,'username'=>$username])
 

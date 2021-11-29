@@ -30,12 +30,32 @@ class UpdatePartnerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['sometimes', 'required', 'string', 'max:25'],
-            'description' => ['sometimes', 'required', 'string', 'max:255'],
+            'en_name' => ['sometimes', 'required', 'string', 'max:25'],
+            'ku_name' => ['sometimes', 'required', 'string', 'max:25'],
+            'ar_name' => ['sometimes', 'required', 'string', 'max:25'],
+            'en_description' => ['sometimes', 'required', 'string', 'max:255'],
+            'ku_description' => ['sometimes', 'required', 'string', 'max:255'],
+            'ar_description' => ['sometimes', 'required', 'string', 'max:255'],
             'image' => [
                 'sometimes', 'image', 'max:2048',
                 'mimes:jpeg,jpg,png,svg',
             ],
+        ];
+    }
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'en_name' => "English Name",
+            'ku_name' => "Kurdish Name",
+            'ar_name' => "Arabic Name",
+            'en_description' => "English Description",
+            'ku_description' => "Kurdish Description",
+            'ar_description' => "Arabic Description",
         ];
     }
     public function updateRecord(Partner $partner)
@@ -46,12 +66,12 @@ class UpdatePartnerRequest extends FormRequest
             $inputs->put('image', $image);
         }
         $partner = $partner->update($inputs->only([
-            'name', 'description', 'image'
+            'en_name', 'en_description', 'ku_name', 'ku_description', 'ar_name', 'ar_description', 'image'
         ])->toArray());
 
         if (!$partner)
             throw ValidationException::withMessages([
-                'failed' => "Failed to update the partner"
+                'failed' => __('index.admin.messages.partner.fail.update')
             ]);
     }
 

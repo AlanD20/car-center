@@ -8,25 +8,25 @@
 
     <div class="index-header">
         <div class="image-container">
-            <span>Image</span>
+            <span>{{__('index.admin.table.image')}}</span>
         </div>
         <div class="title-container">
-            <span>name</span>
+            <span>{{__('index.admin.table.name')}}</span>
         </div>
         <div class="desc-container">
-            <span>position</span>
+            <span>{{__('index.admin.table.position')}}</span>
         </div>
         <div class="created-by-container">
-            <span>Created By</span>
+            <span>{{__('index.admin.table.created_by')}}</span>
         </div>
         <div class="updated-at-container">
-            <span>Updated At</span>
+            <span>{{__('index.admin.table.updated_at')}}</span>
         </div>
         <div class="created-at-container">
-            <span>created at</span>
+            <span>{{__('index.admin.table.created_at')}}</span>
         </div>
         <div class="action-container">
-            <span>Action</span>
+            <span>{{__('index.admin.table.actions')}}</span>
         </div>
         <div class="create-container">
             <a href="{{route('admin.teams.create')}}">
@@ -34,7 +34,7 @@
                     <i class="fas fa-plus-circle"></i>
                 </div>
                 <div class="text">
-                    <span>Create</span>
+                    <span>{{__('index.admin.actions.create')}}</span>
                 </div>
             </a>
         </div>
@@ -45,10 +45,26 @@
             <img src="{{URL::to($team->image)}}" alt="">
         </div>
         <div class="title-container">
-            <span>{{$team->name}}</span>
+            <span>
+                @if(app()->isLocale('en'))
+                {{$team->en_name}}
+                @elseif(app()->isLocale('ku'))
+                {{$team->ku_name}}
+                @elseif(app()->isLocale('ar'))
+                {{$team->ar_name}}
+                @endif
+            </span>
         </div>
         <div class="desc-container">
-            <span>{{$team->position}}</span>
+            <span>
+                @if(app()->isLocale('en'))
+                {{$team->en_position}}
+                @elseif(app()->isLocale('ku'))
+                {{$team->ku_position}}
+                @elseif(app()->isLocale('ar'))
+                {{$team->ar_position}}
+                @endif
+            </span>
         </div>
         <div class="created-by-container">
             <span>{{$team->user->name}}</span>
@@ -63,14 +79,14 @@
             <form action="{{route('admin.teams.edit',['team'=>$team->id], false)}}" method="post">
                 @method('get')
                 @csrf
-                <button type="submit" class="edit">
+                <button type="submit" class="edit" title="{{__('index.admin.actions.edit')}}">
                     <i class="fas fa-pencil"></i>
                 </button>
             </form>
             <form action="{{route('admin.teams.destroy',['team'=>$team->id], false)}}" method="post">
                 @method('delete')
                 @csrf
-                <button type="submit" class="delete">
+                <button type="submit" class="delete" title="{{__('index.admin.actions.delete')}}">
                     <i class="fas fa-trash"></i>
                 </button>
             </form>

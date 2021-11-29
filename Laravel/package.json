@@ -17,7 +17,11 @@
         "autoprefixer": "^10.3.3",
         "cssnano": "^5.0.8",
         "laravel-mix": "^6.0.6",
+        "plyr": "^3.6.9",
         "postcss": "^8.3.6",
         "tailwindcss": "^2.2.9"
+    },
+    "dependencies": {
+        "swiper": "^7.2.0"
     }
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePartnerRequest;
-use App\Http\Requests\UpdatePartnerRequest;
 use App\Models\Partner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StorePartnerRequest;
+use App\Http\Requests\UpdatePartnerRequest;
 
 class PartnerController extends Controller
 {
@@ -22,7 +23,7 @@ class PartnerController extends Controller
     {
         $req->storeRecord();
         return \back()->with([
-            'success' => 'Partner added successfully'
+            'success' => __('index.admin.messages.partner.success.create')
         ]);
     }
     public function edit(Partner $partner)
@@ -34,14 +35,18 @@ class PartnerController extends Controller
         $req->updateRecord($partner);
         return \back()->with([
             'partner' => $partner,
-            'success' => 'Partner updated successfully'
+            'success' => __('index.admin.messages.partner.success.update')
         ]);
     }
     public function destroy(Partner $partner)
     {
+        if (file_exists($partner->image)) {
+            $real_path = str_replace('uploads/', '', $partner->image);
+            Storage::disk('public')->delete($real_path);
+        }
         $partner->delete();
         return \back()->with([
-            'success' => "Partner deleted successfully"
+            'success' => __('index.admin.messages.partner.success.delete')
         ]);
     }
 }

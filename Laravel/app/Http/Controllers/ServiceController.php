@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
-use App\Models\Service;
 
 class ServiceController extends Controller
 {
@@ -21,7 +22,7 @@ class ServiceController extends Controller
     {
         $req->storeRecord();
         return \back()->with([
-            'success' => 'Service added successfully'
+            'success' => __('index.admin.messages.service.success.create')
         ]);
     }
     public function edit(Service $service)
@@ -33,14 +34,18 @@ class ServiceController extends Controller
         $req->updateRecord($service);
         return \back()->with([
             'service' => $service,
-            'success' => 'Service updated successfully'
+            'success' => __('index.admin.messages.service.success.update')
         ]);
     }
     public function destroy(Service $service)
     {
+        if (file_exists($service->image)) {
+            $real_path = str_replace('uploads/', '', $service->image);
+            Storage::disk('public')->delete($real_path);
+        }
         $service->delete();
         return \back()->with([
-            'success' => "Service deleted successfully"
+            'success' => __('index.admin.messages.service.success.delete')
         ]);
     }
 }

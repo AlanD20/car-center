@@ -36,6 +36,18 @@ class LoginRequest extends FormRequest
             'password' => ['required', 'string'],
         ];
     }
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'username' => "Username",
+            'password' => "Password",
+        ];
+    }
     public function authenticate()
     {
 

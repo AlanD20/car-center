@@ -23,7 +23,7 @@ class ProfileController extends Controller
     {
         $req->storeRecord();
         return \back()->with([
-            'success' => 'User added successfully'
+            'success' => __('index.admin.messages.user.success.create')
         ]);
     }
     public function edit(User $user)
@@ -34,12 +34,12 @@ class ProfileController extends Controller
     {
         if ($user->username === config('info.default_username') || $user->username === config('info.admin_username'))
             throw ValidationException::withMessages([
-                'failed' => "Cannot edit the {$user->username} account"
+                'failed' =>  __('index.admin.messages.user.fail.delete_admin')
             ]);
         $req->updateRecord($user);
         return \redirect()->route('admin.profile.edit', ['user' => $user->id])->with([
             'user' => $user,
-            'success' => 'User updated successfully'
+            'success' => __('index.admin.messages.user.success.update')
         ]);
     }
     public function manage()
@@ -55,12 +55,12 @@ class ProfileController extends Controller
     {
         if ($user->username === config('info.default_username') || $user->username === config('info.admin_username'))
             throw ValidationException::withMessages([
-                'failed' => "Cannot delete the requested user!"
+                'failed' => __('index.admin.messages.user.fail.delete_admin')
             ]);
 
         $user->delete();
         return \redirect()->route('admin.profile.manage')->with([
-            'success' => "User deleted successfully"
+            'success' => __('index.admin.messages.user.success.delete')
         ]);
     }
 }

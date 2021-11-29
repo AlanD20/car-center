@@ -10,8 +10,12 @@ class Service extends Model
     use HasFactory;
     protected $table = 'services';
     protected $fillable = [
-        'title',
-        'description',
+        'en_title',
+        'ku_title',
+        'ar_title',
+        'en_description',
+        'ku_description',
+        'ar_description',
         'image',
     ];
     public function getCreatedAtAttribute($value)

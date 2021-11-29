@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\Slide;
 use App\Models\Partner;
 use App\Models\Service;
-use App\Http\Requests\ContactFormRequest;
 use App\Mail\ContactMail;
+use App\Models\AboutSection;
+use App\Http\Requests\ContactFormRequest;
 
 class ClientController extends Controller
 {
@@ -15,13 +17,15 @@ class ClientController extends Controller
         $teams = Team::latest()->get();
         $services = Service::latest()->get();
         $partners = Partner::latest()->get();
-        return view('index', compact('teams', 'services', 'partners'));
+        $about = AboutSection::first();
+        $slides = Slide::latest()->get();
+        return view('index', compact('teams', 'services', 'partners', 'about', 'slides'));
     }
     public function contact(ContactFormRequest $req)
     {
         $req->sendEmail();
-        return \redirect('/#contact')->with([
-            'success' => "Message has been sent."
+        return \redirect('#contact')->with([
+            'sentSuccess' => __('index.admin.messages.mail.success')
         ]);
         // return new ContactMail([
         //     'name' => 'aland',

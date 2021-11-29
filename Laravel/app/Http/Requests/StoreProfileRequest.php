@@ -38,6 +38,19 @@ class StoreProfileRequest extends FormRequest
             'password' => ['required', 'string', 'confirmed', 'max:255'],
         ];
     }
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'name' => "Name",
+            'username' => "Username",
+            'passowrd' => "Password",
+        ];
+    }
     public function storeRecord()
     {
         $password = Hash::make($this->safe()->password);
@@ -49,7 +62,7 @@ class StoreProfileRequest extends FormRequest
 
         if (!$user)
             throw ValidationException::withMessages([
-                'failed' => "Failed to add a new user"
+                'failed' => __('index.admin.messages.user.fail.create')
             ]);
     }
 }

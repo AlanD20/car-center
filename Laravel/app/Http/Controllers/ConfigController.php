@@ -15,6 +15,7 @@ class ConfigController extends Controller
     public function migrationReset()
     {
         Artisan::call('migrate:fresh', ["--force" => true]);
+        Artisan::call('db:seed', ["--class" => 'AboutSeeder', "--force" => true]);
         return back()->with('success', 'Reset Migration successful');
     }
     public function storageLink()
@@ -30,6 +31,7 @@ class ConfigController extends Controller
     public function DataSeed()
     {
         Artisan::call('db:seed', ["--class" => 'DataSeeder', "--force" => true]);
+        Artisan::call('db:seed', ["--class" => 'SlideSeeder', "--force" => true]);
         return back()->with('success', 'Data database seed successful');
     }
     public function generateKey()

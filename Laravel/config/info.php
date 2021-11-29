@@ -11,6 +11,8 @@ return [
     'default_password' => env('DEFAULT_PASSWORD', 'rezhinadmin2021'),
     'social_fb' => env('SOCIAL_FB', '#'),
     'social_ig' => env('SOCIAL_IG', '#'),
+    'social_twitter' => env('SOCIAL_TWITTER', '#'),
+    'social_sc' => env('SOCIAL_SC', '#'),
     'creator_fb' => env('CREATOR_FB', '#'),
     'phone_one' => env('PHONE_ONE', '#'),
     'phone_two' => env('PHONE_TWO', '#'),

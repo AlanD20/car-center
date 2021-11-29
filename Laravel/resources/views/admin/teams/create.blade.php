@@ -8,32 +8,71 @@
     <form action="{{route('admin.teams.store',[])}}" method="post" class="create-form" enctype="multipart/form-data">
         @csrf
         @include('admin.layouts.error-validation')
-        <div class="create-name input-required">
-            <input type="text" name="name" required class="input" value="{{old('name')}}" placeholder="Enter Name">
+
+        <div class="locale-container">
+            <div class="create-title">
+                English
+            </div>
+            <div class="create-name input--required">
+                <input type="text" name="en_name" required class="input" value="{{old('name')}}"
+                    placeholder="{{__('index.admin.ph.name')}}" style="direction:ltr !important;">
+            </div>
+            <div class="create-postion input--required">
+                <input type="text" name="en_position" required class="input" value="{{old('position')}}"
+                    placeholder="{{__('index.admin.ph.position')}}" style="direction:ltr !important;">
+            </div>
+
         </div>
-        <div class="create-postion input-required">
-            <input type="text" name="position" required class="input" value="{{old('position')}}"
-                placeholder="Enter Position">
+
+        <div class="locale-container ku">
+            <div class="create-title">
+                کوردی
+            </div>
+            <div class="create-name input--required">
+                <input type="text" name="ku_name" required class="input" value="{{old('name')}}"
+                    placeholder="{{__('index.admin.ph.name')}}">
+            </div>
+            <div class="create-postion input--required">
+                <input type="text" name="ku_position" required class="input" value="{{old('position')}}"
+                    placeholder="{{__('index.admin.ph.position')}}">
+            </div>
         </div>
+
+        <div class="locale-container ar">
+            <div class="create-title">
+                العربية
+            </div>
+            <div class="create-name input--required">
+                <input type="text" name="ar_name" required class="input" value="{{old('name')}}"
+                    placeholder="{{__('index.admin.ph.name')}}">
+            </div>
+            <div class="create-postion input--required">
+                <input type="text" name="ar_position" required class="input" value="{{old('position')}}"
+                    placeholder="{{__('index.admin.ph.position')}}">
+            </div>
+        </div>
+
+
         <div class="create-image">
-            <input type="file" name="image" hidden='hidden' class="file input" title="Upload an image">
-            <button type="button" class="btn btn-file">Choose</button>
-            <span class="text-file input-required">No Image Chosen</span>
+            <input type="file" name="image" hidden='hidden' class="file input"
+                title="{{__('index.admin.ph.upload_image')}}">
+            <button type="button" class="btn btn-file">{{__('index.admin.actions.choose')}}</button>
+            <span class="text-file">{{__('index.admin.actions.no_image_chosen')}}</span>
         </div>
         <div class="create-social">
             <input type="text" name="facebook" value="{{old('facebook')}}" class="input"
-                placeholder="Enter Facebook profile">
+                placeholder="{{__('index.admin.ph.facebook')}}">
         </div>
         <div class="create-social">
             <input type="text" name="instagram" value="{{old('instagram')}}" class="input"
-                placeholder="Enter Instagram profile">
+                placeholder="{{__('index.admin.ph.instagram')}}">
         </div>
         <div class="create-social">
             <input type="text" name="twitter" value="{{old('twitter')}}" class="input"
-                placeholder="Enter Twitter profile">
+                placeholder="{{__('index.admin.ph.twitter')}}">
         </div>
         <div class="create-submit">
-            <input type="submit" name="submit" value="Create" class="btn">
+            <input type="submit" name="submit" value="{{__('index.admin.actions.create')}}" class="btn">
         </div>
     </form>
 </div>

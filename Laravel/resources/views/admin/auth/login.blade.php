@@ -7,15 +7,15 @@
     <div class="login-container flex flex-col justify-stretch items-center w-full lg:w-[350px]">
         <form class="login-form body-content w-4/5 lg:w-full" action="{{route('login')}}" method="post">
             <div class="form-header block justify-center items-center mb-6">
-                <a href="{{route('home')}}" class="justify-center items-center">
+                <a href="{{route('home')}}" class=" justify-center items-center">
                     <img src="{{asset('/uploads/images/logo.svg')}}"
-                        style="width:150px;height:150px;margin-inline: auto;" alt="logo">
+                        style="width:150px;height:75px;margin-inline: auto;" alt="logo">
                 </a>
-                <span class="block text-xl text-center mt-6">
-                    Login
+                <span class="block text-xl text-center mt-2">
+                    {{__('index.login.title')}}
                 </span>
-                <span class="block text-xl text-center mt-6">
-                    Both Login is: <span class="lowercase font-bold">demo</span>
+                <span class="block text-xl text-center mt-2">
+                    Login is: <span class="lowercase font-bold">demo</span>
                 </span>
             </div>
             @if($errors->any() || session()->has('failed'))
@@ -34,21 +34,36 @@
             @endif
             <div class="form-body">
                 @csrf
-                <input type="text" class="i-username input  login-input" name="username" placeholder="Username">
-                <input type="password" placeholder="Password" name="password" class="i-password input login-input">
+                <input type="text" class="i-username input  login-input" name="username"
+                    placeholder="{{__('index.login.ph.username')}}">
+                <input type="password" placeholder="{{__('index.login.ph.password')}}" name="password"
+                    class="i-password input login-input">
                 <div class="checkbox-box flex items-center gap-3 relative">
                     <input type="checkbox" name="remember" id="remember" class="i-remember invisible">
                     <label for="remember" class="custom-checkbox select-none">
-                        Remember Me
+                        {{__('index.login.remember')}}
                     </label>
                 </div>
-                <input type="submit" value="Login" class="i-login btn login-btn">
+                <input type="submit" value="{{__('index.login.login_btn')}}" class="i-login btn login-btn">
             </div>
         </form>
-        <div class="copyright-text flex justify-center items-center mt-6">
+        <ul class="locale">
+            <li class="locale__item">
+                <a href="{{route('languages.english')}}" rel="noopener"
+                    class="locale__link locale-list__english">English</a>
+            </li>
+            <li class="locale__item">
+                <a href="{{route('languages.kurdish')}}" rel="noopener" class="locale__link locale-list">کوردی</a>
+            </li>
+            <li class="locale__item">
+                <a href="{{route('languages.arabic')}}" rel="noopener"
+                    class="locale__link locale-list__arabic">العربية</a>
+            </li>
+        </ul>
+        <div class="copyright-text flex justify-center items-center mt-2">
             <span>
                 <a href="{{config('info.creator_fb')}}" class="hover:text-cGold-100">
-                    COPYRIGHT © AP SOFT 2021
+                    {{__('index.footer.copyright')}}
                 </a>
             </span>
         </div>

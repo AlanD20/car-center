@@ -17,7 +17,7 @@ class AuthController extends Controller
         $username = $req->authenticate();
         $req->session()->regenerate();
         return \redirect()->route('admin.dashboard')->with([
-            'success' => 'login successful',
+            'success' => __('index.admin.messages.login.success'),
             'username' => $username
         ]);
     }

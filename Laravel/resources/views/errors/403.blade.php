@@ -2,12 +2,12 @@
 
 @section('body')
 <div class="body-container overflow-hidden flex flex-col justify-center items-center break-word ml-0 !animate-none">
-    <h1 class="text-3xl font-bold uppercase">403 Access is forbidden</h1>
-    <h3 class="mt-3 text-lg">You can not access the current page, it does not supposed to be visited.</h3>
+    <h1 class="text-3xl font-bold uppercase">{{__('errors.fzt.title')}}</h1>
+    <h3 class="mt-3 text-lg">{{__('errors.fzt.description')}}</h3>
 
     <h4 class="mt-8">
         <a href="{{route('home')}}" class="font-semibold text-cBlue-300 capitalize hover:text-cGray-400">
-            Click here to return to home page
+            {{__('errors.return')}}
         </a>
     </h4>
 </div>

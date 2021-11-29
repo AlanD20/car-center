@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::prefix('config')
+Route::prefix('/config')
     ->middleware('auth.config')
     ->group(function () {
 

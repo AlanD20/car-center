@@ -1,4 +1,4 @@
-@extends('admin.layouts.body-main')
+@extends('admin.layouts.body-main', ['title'=>__('titles.dashboard')])
 
 @section('body-main')
 <div class="body-main py-12 flex flex-col justify-center items-center gap-12">
@@ -13,7 +13,7 @@
                     <i class="fas fa-chart-network fa-stack-1x fa-inverse"></i>
                 </span>
                 <span>
-                    Services
+                    {{__('index.admin.nav.services.title')}}
                 </span>
             </a>
         </div>
@@ -24,7 +24,7 @@
                     <i class="fas fa-user-friends fa-stack-1x fa-inverse"></i>
                 </span>
                 <span>
-                    Teams
+                    {{__('index.admin.nav.teams.title')}}
                 </span>
             </a>
         </div>
@@ -35,7 +35,7 @@
                     <i class="fas fa-handshake-alt fa-stack-1x fa-inverse"></i>
                 </span>
                 <span>
-                    Partners
+                    {{__('index.admin.nav.partners.title')}}
                 </span>
             </a>
         </div>
@@ -48,7 +48,18 @@
                     <i class="fas fa-user fa-stack-1x fa-inverse"></i>
                 </span>
                 <span>
-                    Profile
+                    {{__('index.admin.profile.title')}}
+                </span>
+            </a>
+        </div>
+        <div class="page-card ">
+            <a href="{{route('admin.slides.index')}}">
+                <span class="icon fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x "></i>
+                    <i class="fas fa-window-restore fa-stack-1x fa-inverse"></i>
+                </span>
+                <span>
+                    {{__('titles.slides.index')}}
                 </span>
             </a>
         </div>
@@ -61,7 +72,7 @@
                         <i class="fas fa-sign-out-alt fa-stack-1x fa-inverse"></i>
                     </span>
                     <span>
-                        Logout
+                        {{__('index.admin.nav.logout')}}
                     </span>
                 </button>
             </form>

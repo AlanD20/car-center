@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <meta name="language" content="English">
-    <link rel="shortcut icon" href="https://car-center.aland20.tech/uploads/images/rezhin_logo.ico" type="image/x-icon" />
-    <link rel="icon" href="https://car-center.aland20.tech/uploads/images/rezhin_logo.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://rezhincenter.com/uploads/images/rezhin_logo.ico" type="image/x-icon" />
+    <link rel="icon" href="https://rezhincenter.com/uploads/images/rezhin_logo.ico" type="image/x-icon" />
     <meta name="author" content="AP SOFT">
-    <link rel="preload" href="https://car-center.aland20.tech/js/app.js" as="script">
-    <link rel="preload" href="https://car-center.aland20.tech/css/app.css" as="style">
+    <link rel="preload" href="https://rezhincenter.com/js/app.js" as="script">
+    <link rel="preload" href="https://rezhincenter.com/css/app.css" as="style">
     <link rel="preload" href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" as="style" />
     <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" rel="stylesheet"
         type="text/css" />
-    <link rel="stylesheet" href="https://car-center.aland20.tech/css/app.css">
-    <script defer src="https://car-center.aland20.tech/js/app.js"></script>
+    <link rel="stylesheet" href="https://rezhincenter.com/css/app.css">
+    <script defer src="https://rezhincenter.com/js/app.js"></script>
     <title></title>
 </head>
 
@@ -30,13 +30,13 @@
         <span class="capitalize font-semibold">Follow Us on social media</span>
         <ul class="social-list gap-2 mt-4 text-lg flex justify-center items-center">
             <li class="group social-button">
-                <a href="#" rel="noopener" aria-label="facebook" class="social-link">
+                <a href="https://www.facebook.com/Rezhin.center" rel="noopener" aria-label="facebook" class="social-link">
                     <i class="fab fa-facebook text-cGray-400 group-hover:text-cGold-200 z-10 text-4xl"></i>
                 </a>
             </li>
 
             <li class="group social-button">
-                <a href="#" rel="noopener" aria-label="instagram" class="social-link">
+                <a href="https://www.instagram.com/rezhin.center/" rel="noopener" aria-label="instagram" class="social-link">
                     <i class="fab fa-instagram text-cGray-400 group-hover:text-cGold-200 z-10 text-4xl"></i>
                 </a>
             </li>

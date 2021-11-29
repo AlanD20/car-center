@@ -1,0 +1,25 @@
+/* Kurdish fonts */
+@font-face {
+    font-family: nrt;
+    src: url(../fonts/NRT-Reg.ttf) format("truetype"),
+        url(../fonts/NRT-Reg.woff) format("woff");
+    font-weight: normal;
+}
+@font-face {
+    font-family: nrt;
+    src: url(../fonts/NRT-Bd.ttf) format("truetype"),
+        url(../fonts/NRT-Bd.woff) format("woff");
+    font-weight: bold;
+}
+
+/* Arabic fonts */
+@font-face {
+    font-family: Tajawal;
+    src: url(../fonts/Tajawal-Regular.ttf) format("truetype");
+    font-weight: normal;
+}
+@font-face {
+    font-family: Tajawal;
+    src: url(../fonts/Tajawal-Black.ttf) format("truetype");
+    font-weight: bold;
+}

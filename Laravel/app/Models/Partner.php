@@ -10,8 +10,12 @@ class Partner extends Model
     use HasFactory;
     protected $table = 'partners';
     protected $fillable = [
-        'name',
-        'description',
+        'en_name',
+        'ku_name',
+        'ar_name',
+        'en_description',
+        'ku_description',
+        'ar_description',
         'image',
     ];
     public function getCreatedAtAttribute($value)

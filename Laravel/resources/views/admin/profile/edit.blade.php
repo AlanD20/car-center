@@ -5,30 +5,34 @@
 
     @include('admin.layouts.messages')
 
-    <form action="{{route('admin.profile.update',['user'=>$user->id])}}" method="post" class="create-form">
+    <form action="{{route('admin.profile.update',['user'=>$user->id])}}" method="post" class="create-form"
+        style="direction:ltr !important;">
         @csrf
         @method('patch')
         @include('admin.layouts.error-validation')
 
         <div class="create-name">
-            <input type="text" name="name" class="input" value="{{$user->name}}" placeholder="Enter Name">
+            <input type="text" name="name" class="input" value="{{$user->name}}"
+                placeholder="{{__('index.admin.ph.name')}}">
         </div>
         <div class="create-username">
-            <input type="text" name="username" class="input" value="{{$user->username}}" placeholder="Enter Username">
+            <input type="text" name="username" class="input" value="{{$user->username}}"
+                placeholder="{{__('index.admin.ph.username')}}">
         </div>
         <div class="create-password">
-            <input type="password" name="current_password" class="input" placeholder="Enter Current Password">
+            <input type="password" name="current_password" class="input"
+                placeholder="{{__('index.admin.ph.current_password')}}">
         </div>
         <div class="create-password">
-            <input type="password" name="password" class="input" placeholder="Enter New Password">
+            <input type="password" name="password" class="input" placeholder="{{__('index.admin.ph.new_password')}}">
         </div>
         <div class="create-repeat-password">
             <input type="password" name="password_confirmation" class="input"
-                placeholder="Enter New Confirmation Password">
+                placeholder="{{__('index.admin.ph.repeat_new_password')}}">
         </div>
 
         <div class="create-submit">
-            <input type="submit" name="submit" value="Update" class="btn">
+            <input type="submit" name="submit" value="{{__('index.admin.actions.update')}}" class="btn">
         </div>
     </form>
 </div>

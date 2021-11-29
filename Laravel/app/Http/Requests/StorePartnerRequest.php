@@ -28,26 +28,50 @@ class StorePartnerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:25'],
-            'description' => ['required', 'string', 'max:255'],
+            'en_name' => ['required', 'string', 'max:25'],
+            'ku_name' => ['required', 'string', 'max:25'],
+            'ar_name' => ['required', 'string', 'max:25'],
+            'en_description' => ['required', 'string', 'max:255'],
+            'ku_description' => ['required', 'string', 'max:255'],
+            'ar_description' => ['required', 'string', 'max:255'],
             'image' => [
                 'required', 'image', 'max:2048',
                 'mimes:jpeg,jpg,png,svg',
             ],
         ];
     }
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'en_name' => "English Name",
+            'ku_name' => "Kurdish Name",
+            'ar_name' => "Arabic Name",
+            'en_description' => "English Description",
+            'ku_description' => "Kurdish Description",
+            'ar_description' => "Arabic Description",
+        ];
+    }
     public function storeRecord()
     {
         $image = $this->uploadImage();
         $partner = $this->user()->partners()->create([
-            'name' => $this->safe()->name,
-            'description' => $this->safe()->description,
+            'en_name' => $this->safe()->en_name,
+            'ku_name' => $this->safe()->ku_name,
+            'ar_name' => $this->safe()->ar_name,
+            'en_description' => $this->safe()->en_description,
+            'ku_description' => $this->safe()->ku_description,
+            'ar_description' => $this->safe()->ar_description,
             'image' => $image,
         ]);
 
         if (!$partner)
             throw ValidationException::withMessages([
-                'failed' => "Failed to add a new partner"
+                'failed' => __('index.admin.messages.partner.fail.create')
             ]);
     }
 

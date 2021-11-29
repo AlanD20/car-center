@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'dashboard' => 'Dashboard',
     'teams' => [
         'index' => 'Team Members',
         'edit' => 'Edit Team Member',
@@ -20,5 +21,11 @@ return [
         'manage' => 'Manage Users',
         'edit' => 'Edit Profile',
         'create' => 'Create User',
+    ],
+    'about' => 'Edit About Section',
+    'slides' => [
+        'index' => 'Slide Show',
+        'edit' => 'Edit Slide Show',
+        'create' => 'Create Slide Show',
     ],
 ];

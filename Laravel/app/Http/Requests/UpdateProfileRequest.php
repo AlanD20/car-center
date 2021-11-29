@@ -41,6 +41,19 @@ class UpdateProfileRequest extends FormRequest
             'password' => ['sometimes', 'nullable', 'string', 'confirmed', 'max:255'],
         ];
     }
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'name' => "Name",
+            'username' => "Username",
+            'passowrd' => "Password",
+        ];
+    }
     public function updateRecord(User $user)
     {
         if (!\is_null($this->password)) $this->makePassword($user);
@@ -51,7 +64,7 @@ class UpdateProfileRequest extends FormRequest
 
         if (!$user)
             throw ValidationException::withMessages([
-                'failed' => "Failed to update the user profile"
+                'failed' => __('index.admin.messages.user.fail.update')
             ]);
     }
     function makePassword(User $user)
@@ -60,12 +73,12 @@ class UpdateProfileRequest extends FormRequest
 
         if (empty($this->current_password))
             throw ValidationException::withMessages([
-                'current_password' => "Current password is required"
+                'current_password' => __('index.admin.messages.user.fail.required_current_password')
             ]);
 
         if (!Hash::check($this->safe()->current_password, $user->password))
             throw ValidationException::withMessages([
-                'current_password' => "Current password is incorrect."
+                'current_password' => __('index.admin.messages.user.fail.current_password')
             ]);
 
         return $this->updatePassword($user);

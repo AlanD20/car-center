@@ -30,12 +30,32 @@ class UpdateServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['sometimes', 'required', 'string', 'max:25'],
-            'description' => ['sometimes', 'required', 'string', 'max:255'],
+            'en_title' => ['sometimes', 'required', 'string', 'max:25'],
+            'ku_title' => ['sometimes', 'required', 'string', 'max:25'],
+            'ar_title' => ['sometimes', 'required', 'string', 'max:25'],
+            'en_description' => ['sometimes', 'required', 'string', 'max:255'],
+            'ku_description' => ['sometimes', 'required', 'string', 'max:255'],
+            'ar_description' => ['sometimes', 'required', 'string', 'max:255'],
             'image' => [
                 'sometimes', 'image', 'max:2048',
                 'mimes:jpeg,jpg,png,svg',
             ],
+        ];
+    }
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'en_title' => "English Title",
+            'ku_title' => "Kurdish Title",
+            'ar_title' => "Arabic Title",
+            'en_description' => "English Description",
+            'ku_description' => "Kurdish Description",
+            'ar_description' => "Arabic Description",
         ];
     }
     public function updateRecord(Service $service)
@@ -46,18 +66,19 @@ class UpdateServiceRequest extends FormRequest
             $inputs->put('image', $image);
         }
         $service = $service->update($inputs->only([
-            'title', 'description', 'image'
+            'en_title', 'en_description', 'ku_title', 'ku_description', 'ar_title', 'ar_description', 'image'
         ])->toArray());
 
         if (!$service)
             throw ValidationException::withMessages([
-                'failed' => "Failed to update the service"
+                'failed' => __('index.admin.messages.service.fail.update')
             ]);
     }
 
     function uploadImage(string $path)
     {
-        if (file_exists($path)) {
+        $notDefault = \preg_match('/(default.svg)/', $path);
+        if (file_exists($path) && ($notDefault === 0)) {
             $real_path = str_replace('uploads/', '', $path);
             Storage::disk('public')->delete($real_path);
         }

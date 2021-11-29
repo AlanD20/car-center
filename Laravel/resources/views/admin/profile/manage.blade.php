@@ -7,19 +7,19 @@
 
     <div class="index-header">
         <div class="name-container">
-            <span>name</span>
+            <span>{{__('index.admin.table.name')}}</span>
         </div>
         <div class="desc-container">
-            <span>username</span>
+            <span>{{__('index.admin.table.username')}}</span>
         </div>
         <div class="updated-at-container">
-            <span>Updated At</span>
+            <span>{{__('index.admin.table.updated_at')}}</span>
         </div>
         <div class="created-at-container">
-            <span>created at</span>
+            <span>{{__('index.admin.table.created_at')}}</span>
         </div>
         <div class="action-container">
-            <span>Action</span>
+            <span>{{__('index.admin.table.actions')}}</span>
         </div>
         <div class="create-container">
             <a href="{{route('admin.profile.create')}}">
@@ -27,7 +27,7 @@
                     <i class="fas fa-plus-circle"></i>
                 </div>
                 <div class="text">
-                    <span>Create</span>
+                    <span>{{__('index.admin.actions.create')}}</span>
                 </div>
             </a>
         </div>
@@ -54,14 +54,14 @@
                 <form action="{{route('admin.profile.edit',['user'=>$user->id])}}" method="post">
                     @method('get')
                     @csrf
-                    <button type="submit" class="edit">
+                    <button type="submit" class="edit" title="{{__('index.admin.actions.edit')}}">
                         <i class="fas fa-pencil"></i>
                     </button>
                 </form>
                 <form action="{{route('admin.profile.destroy',['user'=>$user->id])}}" method="post">
                     @method('delete')
                     @csrf
-                    <button type="submit" class="delete">
+                    <button type="submit" class="delete" title="{{__('index.admin.actions.delete')}}">
                         <i class="fas fa-trash"></i>
                     </button>
                 </form>

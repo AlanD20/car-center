@@ -1,21 +1,21 @@
 module.exports = {
   mode: 'jit',
-  purge:{
-       mode: 'all',
-       enabled: true,
-       preserveHtmlElements: false,  
-       content: [
+  purge: {
+    mode: 'all',
+    enabled: true,
+    preserveHtmlElements: false,
+    content: [
       './storage/framework/views/*.php',
-      './resources/views/*.blade.php', 
-      './resources/views/*/*.blade.php', 
-      './resources/views/*/*/*.blade.php', 
+      './resources/views/*.blade.php',
+      './resources/views/*/*.blade.php',
+      './resources/views/*/*/*.blade.php',
       './resources/views/*/*/*/*.blade.php',
       './resources/js/*.js',
     ],
-       options:  { 
-        keyframes:false,
-       }
-    }, 
+    options: {
+      keyframes: false,
+    }
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     fill: theme => ({
@@ -26,6 +26,10 @@ module.exports = {
       'cGray-400': theme('colors.cGray.400'),
     }),
     extend: {
+      fontFamily: {
+        'Tajawal': ['Tajawal', 'nrt', 'Arial'],
+        'nrt': ['nrt', 'Tajawal', 'Arial'],
+      },
       colors: {
         cBlack: '#212529',
         cGray: {
@@ -51,99 +55,99 @@ module.exports = {
           200: '#f9bd65',
           300: '#FFDE00',
         },
-        cGreen:{
+        cGreen: {
           100: '#82c885',
           200: '#8BC34A',
           300: '#04BE5B',
           400: '#009688',
         },
-        cRed:{
-          100:'#EE2558',
+        cRed: {
+          100: '#EE2558',
         }
       },
       keyframes: {
         hideMessage: {
-            'from': {
-                opacity: '1'
-            },
-            'to': {
-                opacity: '0'
-            },
+          'from': {
+            opacity: '1'
+          },
+          'to': {
+            opacity: '0'
+          },
         },
         showMessage: {
           'from': {
             opacity: '0'
-        },
-        'to': {
+          },
+          'to': {
             opacity: '1'
-        },
+          },
         },
         leftNavClose: {
-            'from': {
-                width: '225px'
-            },
-            'to': {
-                width: '65px'
-            },
+          'from': {
+            width: '225px'
+          },
+          'to': {
+            width: '65px'
+          },
         },
         leftNavOpen: {
-            'from': {
-                width: '65px'
-            },
-            'to': {
-                width: '225px'
-            },
+          'from': {
+            width: '65px'
+          },
+          'to': {
+            width: '225px'
+          },
         },
         smallLeftNavClose: {
-            'from': {
-                width: '180px'
-            },
-            'to': {
-                width: '65px'
-            },
+          'from': {
+            width: '180px'
+          },
+          'to': {
+            width: '65px'
+          },
         },
         smallLeftNavOpen: {
-            'from': {
-                width: '65px'
-            },
-            'to': {
-                width: '180px'
-            },
+          'from': {
+            width: '65px'
+          },
+          'to': {
+            width: '180px'
+          },
         },
         bodyNavClose: {
-            'from': {
-              "margin-inline-start": '225px'
-            },
-            'to': {
-              "margin-inline-start": '50px'
-            },
+          'from': {
+            "margin-inline-start": '225px'
+          },
+          'to': {
+            "margin-inline-start": '50px'
+          },
         },
         bodyNavOpen: {
-            'from': {
-              "margin-inline-start": '50px'
-            },
-            'to': {
-              "margin-inline-start": '225px'
-            },
+          'from': {
+            "margin-inline-start": '50px'
+          },
+          'to': {
+            "margin-inline-start": '225px'
+          },
         },
         homeMenuOpen: {
-            'from': {
-              "transform": 'translateY(-100%)'
-            },
-            'to': {
-              "transform": 'translateY(-1px)'
-            },
+          'from': {
+            "transform": 'translateY(-100%)'
+          },
+          'to': {
+            "transform": 'translateY(-2px)'
+          },
         },
         homeMenuClose: {
-            'from': {
-              "transform": 'translateY(-1px)'
-            },
-            'to': {
-              "transform": 'translateY(-100%)'
-            },
+          'from': {
+            "transform": 'translateY(-2px)'
+          },
+          'to': {
+            "transform": 'translateY(-100%)'
+          },
         }
-    },
-    animation: {
+      },
+      animation: {
         showMessage: 'showMessage 500ms ease',
         hideMessage: 'hideMessage 4s ease',
         navClose: 'leftNavClose 350ms ease',
@@ -152,9 +156,9 @@ module.exports = {
         smallNavOpen: 'smallLeftNavOpen 350ms ease',
         bodyClose: 'bodyNavClose 200ms ease',
         bodyOpen: 'bodyNavOpen 200ms ease',
-        homeMenuClose: 'homeMenuClose 300ms ease',
-        homeMenuOpen: 'homeMenuOpen 300ms ease',
-    }
+        homeMenuClose: 'homeMenuClose 300ms ease-out',
+        homeMenuOpen: 'homeMenuOpen 300ms ease-out',
+      }
     },
   },
   variants: {
