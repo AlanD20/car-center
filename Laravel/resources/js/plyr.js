@@ -4,7 +4,7 @@ let players = [];
 videos.forEach(video => players.push(new Plyr(video, {
     settings: ['quality'],
     controls: ['play-large', 'current-time', 'mute', 'volume', 'fullscreen'],
-    storage: { enabled: true, key: 'rezhin-player' },
+    storage: { enabled: true, key: 'car-center-player' },
     autopause: true,
     autoplay: false,
     muted: true,
