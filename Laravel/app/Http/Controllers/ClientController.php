@@ -24,7 +24,7 @@ class ClientController extends Controller
     public function contact(ContactFormRequest $req)
     {
         $req->sendEmail();
-        return \redirect('#contact')->with([
+        return \redirect()->to(app('url')->previous() . "#contact")->with([
             'sentSuccess' => __('index.admin.messages.mail.success')
         ]);
         // return new ContactMail([
