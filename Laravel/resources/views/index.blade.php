@@ -386,7 +386,7 @@
                 <div class="flash-message show-message w-full p-6 rounded-2xl mb-4 flex
                 justify-center items-center bg-cGreen-300">
                     <span class="email-notify__text text-white font-semibold">
-                        {{session('success')}}
+                        {{session('sentSuccess')}}
                     </span>
                 </div>
                 @endif
