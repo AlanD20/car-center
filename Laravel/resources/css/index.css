@@ -22,7 +22,7 @@
         outline: none;
     }
     /* START OF Old Language navbar -- Keyword: old language navbar */
-    /*Old Language height is 4rem 
+    /*Old Language height is 4rem
       Old Height CSS:  lg:h-16
       New Height CSS:  lg:h-20
     */
@@ -127,7 +127,7 @@
         @apply bg-cGreen-300;
     }
     .sec-contact {
-        background-image: url(../uploads/images/map-image.png);
+        background-image: url(uploads/images/map-image.png);
     }
 
     .sec-title {
@@ -326,7 +326,7 @@
     }
 
     .contact__send-btn {
-        @apply bg-cGold-100 hover:bg-cGold-200 text-white
+        @apply bg-cGold-100  hover:bg-cGold-200 text-cGray-300
         rounded cursor-pointer transition ease-in-out text-2xl duration-300 border-0 py-[10px] px-[20px] md:py-[20px] md:px-[40px];
     }
     footer {

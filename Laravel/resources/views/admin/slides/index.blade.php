@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{asset('css/plyr.css')}}" />
 @endsection
 @section('head-bottom')
-<script defer type="module" src="{{asset('js/app_plyr.js')}}"></script>
+@vite(['resources/js/app_plyr.js'])
 @endsection
 
 @section('body-main')

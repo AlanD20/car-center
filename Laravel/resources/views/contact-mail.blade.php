@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="color-scheme" content="light">
     <meta name="supported-color-schemes" content="light">
-    <link rel="stylesheet" href="{{asset('css/mail.css')}}">
+    @vite(['resources/css/mail.css'])
 </head>
 
 <body>

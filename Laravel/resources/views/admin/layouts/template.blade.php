@@ -11,27 +11,23 @@
     <link rel="icon" href="{{asset('uploads/images/favico.ico')}}" type="image/x-icon" />
     <meta name="author" content="AlanD20">
     @yield('head-top')
-    <link rel="preload" href="{{asset('js/app.js')}}" as="script">
-    <link rel="preload" href="{{asset('css/app.css')}}" as="style">
     <link rel="preload" href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" as="style" />
     <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" rel="stylesheet"
         type="text/css" />
-    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/fonts.css')}}">
+
+    @vite(['resources/css/app.css'])
+
     @if(session('locale')==='ku')
-    <link rel="stylesheet" href="/css/ku_index.css">
-    <link rel="stylesheet" href="/css/rtl_index.css">
+    @vite(['resources/css/ku_family.css','resources/css/rtl_index.css'])
     @endif
     @if(session('locale')==='ar')
-    <link rel="stylesheet" href="/css/ar_index.css">
-    <link rel="stylesheet" href="/css/rtl_index.css">
+    @vite(['resources/css/ar_family.css','resources/css/rtl_index.css'])
     @endif
     @if(App::isLocale('en'))
-    <script defer src="{{asset('js/app.js')}}"></script>
+    @vite(['resources/js/app.js'])
     @endif
     @if(!App::isLocale('en'))
-    <link rel="stylesheet" href="{{asset('css/rtl_app.css')}}">
-    <script defer src="{{asset('js/rtl_app.js')}}"></script>
+    @vite(['resources/css/rtl_app.css', 'resources/js/rtl_app.js'])
     @endif
 
     @yield('head-bottom')

@@ -1,37 +1,37 @@
 {
-    "name": "Rezhin Automotive Center",
-    "short_name": "Rezhin Center",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#3D3E3E",
-    "theme_color": "#3D3E3E",
-    "orientation":"portrait-primary",
-    "description": "Rezhin center is professional, modern automotive service, with more than 30 years of experience in the automotive industry.",
-    "icons": [
-      {
-        "src": "./uploads/images/app/app-512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      },
-      {
-        "src": "./uploads/images/app/app-192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "./uploads/images/app/app-128.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "./uploads/images/app/app-96.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "./uploads/images/app/app-72.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      }
-    ]
-  }
+  "name": "Car Center",
+  "short_name": "Car Center",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3D3E3E",
+  "theme_color": "#3D3E3E",
+  "orientation": "portrait-primary",
+  "description": "Car center is professional, modern automotive service, with more than 30 years of experience in the automotive industry.",
+  "icons": [
+    {
+      "src": "./uploads/images/app/app-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./uploads/images/app/app-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./uploads/images/app/app-128.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./uploads/images/app/app-96.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./uploads/images/app/app-72.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+@import "fonts.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,7 +26,7 @@
         @apply w-full h-screen bg-white flex justify-center items-center p-4 text-cGray-400;
     }
     .rtl-container * {
-        direciton: rtl;
+        direction: rtl;
     }
     /*
     ** start of custom components

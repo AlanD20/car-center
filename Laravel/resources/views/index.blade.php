@@ -14,8 +14,7 @@
     <link rel="shortcut icon" href="{{asset('uploads/images/favico.ico')}}" type="image/x-icon" />
     <link rel="icon" href="{{asset('uploads/images/favico.ico')}}" type="image/x-icon" />
     <meta name="author" content="AlanD20">
-    <link rel="preload" crossOrigin="anonymous" href="/js/index.js" as="script">
-    <link rel="preload" href="/css/index.css" as="style">
+
     <link rel="preload" href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" as="style" />
     <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" rel="stylesheet"
         type="text/css" />
@@ -23,15 +22,13 @@
     <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/plyr.css" />
 
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/fonts.css">
+    @vite(['resources/css/index.css'])
+
     @if(session('locale')==='ku')
-    <link rel="stylesheet" href="/css/ku_index.css">
-    <link rel="stylesheet" href="/css/rtl_index.css">
+    @vite(['resources/css/ku_family.css','resources/css/rtl_index.css'])
     @endif
     @if(session('locale')==='ar')
-    <link rel="stylesheet" href="/css/ar_index.css">
-    <link rel="stylesheet" href="/css/rtl_index.css">
+    @vite(['resources/css/ar_family.css','resources/css/rtl_index.css'])
     @endif
     {{--
     <link rel="manifest" href="/app.webmanifest"> --}}
@@ -49,7 +46,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="/uploads/images/app/app-72.png"> --}}
 
     <script defer type="module" src="/js/plyr.js"></script>
-    <script defer type="module" src="/js/index.js"></script>
+    @vite(['resources/js/index.js'])
     <title>{{__('index.title')}}</title>
 </head>
 
@@ -161,7 +158,7 @@
     <!-- Main -->
     <main>
         <!-- Home Section -->
-        <section id="home" class="sec-home 
+        <section id="home" class="sec-home
         py-0 bg-cGray-100 relative">
             <!-- Slider main container -->
             <div class="swiper">
@@ -361,22 +358,23 @@
             </div>
             <div class="about px-4 md:px-8">
                 <div class="about__image">
-                    <img src="{{URL::to($about->image)}}" alt="" class="about_pic">
+                    <img src="{{URL::to($about->image ?? '')}}" alt="" class="about_pic">
                 </div>
                 <p class="about__text">
                     @if(app()->isLocale('en'))
-                    {{$about->en_content}}
+                    {{$about->en_content ?? ''}}
                     @elseif(app()->isLocale('ku'))
-                    {{$about->ku_content}}
+                    {{$about->ku_content ?? ''}}
                     @elseif(app()->isLocale('ar'))
-                    {{$about->ar_content}}
+                    {{$about->ar_content ?? ''}}
                     @endif
                 </p>
             </div>
         </section>
 
         <!-- Contact US Section -->
-        <section id="contact" class="sec-contact bg-cBlack pt-32">
+        <section id="contact" class="sec-contact bg-cBlack pt-32"
+            style="background-image: url({{asset('uploads/images/map-image.png')}});">
             <div class="sec-title">
                 <h2 class="sec-title__text text-white">{{__('index.contact.title')}}</h2>
                 <span class="sec-title__description text-white">{{__('index.contact.description')}}</span>
@@ -521,6 +519,7 @@
             </div>
         </div>
     </footer>
+
     @if (session()->has('refresh'))
     <script>
         location.reload();
