@@ -43,7 +43,7 @@ return [
         'follow' => 'follow us',
         'location' => 'location',
         'contact' => 'contact us',
-        'copyright' => 'COPYRIGHT © ALAND20.TECH 2021',
+        'copyright' => 'COPYRIGHT © ALAND20.COM',
         'address' => [
             'first' => 'Address 1',
             'second' => 'Address 2',

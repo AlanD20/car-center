@@ -513,7 +513,9 @@
         <div class="footer-bottom flex justify-center items-center bg-cGray-500 text-white w-full">
             <div class="footer-bottom__text">
                 <a href="{{config('info.creator_fb')}}" rel="noopener" class="nav-list__link">
-                    <span class="font-semibold"> {{__('index.footer.copyright')}}</span>
+                    <span class="font-semibold">
+                        {{__('index.footer.copyright').' '.date('Y')}}
+                    </span>
                 </a>
 
             </div>

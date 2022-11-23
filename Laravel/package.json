@@ -1,6 +1,6 @@
 {
     "name": "car-center-project",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Single landing page with admin panel.",
     "license": "GNU",
     "private": true,
@@ -9,7 +9,8 @@
         "build": "vite build",
         "serve": "php artisan serve",
         "cache:clear": "php artisan clear && php artisan clear-compiled && php artisan config:clear && php artisan cache:clear && php artisan view:clear && php artisan route:clear && php artisan optimize && composer dump-autoload -o",
-        "db:fresh": "php artisan migrate:fresh --seed"
+        "db:fresh": "php artisan migrate:fresh --seed",
+        "link": "php artisan storage:link"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.12",

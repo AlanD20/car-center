@@ -16,8 +16,8 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-if (file_exists(__DIR__ . '/../Laravel/storage/framework/maintenance.php')) {
-    require __DIR__ . '/../Laravel/storage/framework/maintenance.php';
+if (file_exists(__DIR__ . '/../laravel/storage/framework/maintenance.php')) {
+  require __DIR__ . '/../laravel/storage/framework/maintenance.php';
 }
 
 /*
@@ -31,7 +31,7 @@ if (file_exists(__DIR__ . '/../Laravel/storage/framework/maintenance.php')) {
 |
 */
 
-require __DIR__ . '/../Laravel/vendor/autoload.php';
+require __DIR__ . '/../laravel/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -44,12 +44,12 @@ require __DIR__ . '/../Laravel/vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__ . '/../Laravel/bootstrap/app.php';
+$app = require_once __DIR__ . '/../laravel/bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 
 $response = tap($kernel->handle(
-    $request = Request::capture()
+  $request = Request::capture()
 ))->send();
 
 $kernel->terminate($request, $response);

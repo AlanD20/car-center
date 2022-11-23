@@ -44,7 +44,7 @@ return [
         'follow' => 'شوێنمان بکەون لە',
         'location' => 'شوێن',
         'contact' => 'پەیوەندیمان پێوە بکە',
-        'copyright' => 'مافی پارێزراوە بۆ © ALAND20.TECH 2021',
+        'copyright' => 'مافی پارێزراوە بۆ © ALAND20.COM',
         'address' => [
             'first' => 'ناونیشانی ١',
             'second' => 'ناونیشانی ٢',

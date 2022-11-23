@@ -51,11 +51,12 @@ class UpdateSlideRequest extends FormRequest
     {
         $this->mergeFileType();
         if ($this->hasFile('file'))
-            $this->uploadFile($slide->file);
+            $path = $this->uploadFile($slide->file);
 
-        $slide = $slide->update($this->only([
-            'file', 'type'
-        ]));
+        $slide = $slide->update([
+            'file' => $path,
+            'type' => $this->type,
+        ]);
 
         if (!$slide)
             throw ValidationException::withMessages([

@@ -8,7 +8,7 @@
     - SEO-friendly and Google indexing.
 
 
-## **[Project Live Preview](https://car-center.aland20.tech/)**
+## **[Project Live Preview](https://car-center.aland20.com/)**
 
 ---
 

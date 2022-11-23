@@ -43,7 +43,7 @@ return [
         'follow' => 'تابعنا',
         'location' => 'موقعك',
         'contact' => 'اتصل بنا',
-        'copyright' => 'حقوق النشر لـ © ALAND20.TECH 2021',
+        'copyright' => 'حقوق النشر لـ © ALAND20.COM',
         'address' => [
             'first' => 'عنوان ١',
             'second' => 'عنوان ٢',
